@@ -1,42 +1,39 @@
 # Live Polling Tool
-
-A real-time polling application where users can create a poll, share it with others, and see voting results update instantly without refreshing the page.
+A real-time polling application where users can create a poll, share it with others, vote, and see the results update live without refreshing the page.
 
 ## Features
-
-- Create a poll with a question and two options
-- Share the poll using a unique link
-- Vote for an option
+- User login for creating polls
+- Create a poll with a question and options
+- Share polls using a unique link
+- Vote on a poll
 - View vote counts and percentages
-- See live result updates without refreshing
-- Store poll data using Redis
-- Real-time communication using WebSockets
-- Basic validation for invalid polls and votes
+- Live result updates without refreshing
+- Store poll data in MongoDB
+- Use Redis for live vote counters and updates
+- WebSocket-based real-time communication
+- Basic input validation
+
+## How to Run
+Make sure MongoDB and Redis are running before starting the backend.
+
+   ## Backend
+      cd backend
+      go run main.go
+    
+   ## Frontend
+      cd frontend
+      npm install
+      npm run dev
 
 ## Tech Stack
-
 - React
-- Go
+- Go / Gin
+- MongoDB
 - Redis
 - WebSockets
 - CSS
 
 ## Project Structure
-
-```text
-live-polling-tool/
-│
-├── backend/
-│   ├── go.mod
-│   ├── go.sum
-│   └── main.go
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── index.css
-│   ├── package.json
-│   └── vite.config.js
-│
-└── README.md
+/frontend   > React app
+/backend    > Go service
+README.md   > Project information
