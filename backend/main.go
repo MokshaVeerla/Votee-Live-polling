@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -470,11 +471,8 @@ func redisSubscriber() {
 
 func main() {
 	// Application configuration.
-	redisAddress := getEnv(
-		"REDIS_ADDR",
-		"localhost:6379",
-	)
-
+	redisAddress := getEnv("REDIS_ADDR", "localhost:6379")
+	redisPassword := getEnv("REDIS_PASSWORD", "")
 	mongoURI := getEnv(
 		"MONGO_URI",
 		"mongodb://127.0.0.1:27017",
@@ -506,9 +504,16 @@ func main() {
 	)
 
 	// Connect to Redis.
-	redisClient = redis.NewClient(&redis.Options{
-		Addr: redisAddress,
-	})
+	redisOptions := &redis.Options{
+		Addr:      redisAddress,
+		Password:  redisPassword,
+	}
+	if redisPassword != "" {
+		redisOptions.TLSConfig = &tls.Config{
+			ServerName: "heroic-joey-285292.upstash.io",
+		}
+	}
+	redisClient = redis.NewClient(redisOptions)
 
 	_, err := redisClient.Ping(
 		context.Background(),
