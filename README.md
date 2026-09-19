@@ -3,6 +3,9 @@ A real-time polling application where users can create a poll, share it with oth
 
 ## Live Demo
 https://votee-live-polling.vercel.app/
+## Login
+**Username: admin
+Password: admin123**
 
 ## Features
 - User login for creating polls
