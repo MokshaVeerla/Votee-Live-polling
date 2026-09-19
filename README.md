@@ -15,7 +15,7 @@ A real-time polling application where users can create a poll, share it with oth
 
 ## How to Run
 Make sure MongoDB and Redis are running before starting the backend.
-
+React → Go/Gin → MongoDB + Redis → WebSocket → result
    ## Backend
       cd backend
       go run main.go
