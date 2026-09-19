@@ -1,6 +1,9 @@
 # Live Polling Tool
 A real-time polling application where users can create a poll, share it with others, vote, and see the results update live without refreshing the page.
 
+## Live Demo
+https://votee-live-polling.vercel.app/
+
 ## Features
 - User login for creating polls
 - Create a poll with a question and options
