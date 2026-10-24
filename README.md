@@ -28,7 +28,6 @@ React → Go/Gin → MongoDB + Redis → WebSocket → result
     
    ## Frontend
       cd frontend
-      npm install
       npm run dev
 
 ## Tech Stack
